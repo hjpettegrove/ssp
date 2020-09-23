@@ -57,7 +57,12 @@ services:
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-           
+      
+  composer:
+    image: composer:1.9
+    command: ["composer", "install"]
+    volumes:
+      - ${PROJECT_ROOT}/:/app
 networks:
   frontend:
   backend:
